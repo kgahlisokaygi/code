@@ -12,7 +12,7 @@ async function getSmartphones(url) {
             })
             .then(() => {
                 const phone = smartphones.flat().filter(element => element.price < 500 && Math.max(element.rating));
-                console.log(`phone - ${JSON.stringify(phone)}`)
+                console.log(`The best smartphone - ${JSON.stringify(phone)}`
             });
     console.log("<~~ function ended ~~>")
 
