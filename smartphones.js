@@ -11,8 +11,13 @@ async function getSmartphones(url) {
                 smartphones.push(data.products);
             })
             .then(() => {
-                const phone = smartphones.flat().filter(element => element.price < 500 && Math.max(element.rating));
-                console.log(`The best smartphone - ${JSON.stringify(phone)}`)
+                let highestRating = smartphones.map(a => Math.max(...a.map(b => b.rating)));
+                console.log(`List of smartphones - ${JSON.stringify(smartphones)}`)
+
+                const smartphone = smartphones.flat().filter(element => { 
+                    element.rating >= highestRating && element.price < 500 
+                });
+                console.log(`The best smartphone - ${JSON.stringify(smartphone)}`)
             });
     console.log("<~~ function ended ~~>")
 
